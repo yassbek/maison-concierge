@@ -21,6 +21,25 @@ const emails = {
 };
 
 export async function POST(request: NextRequest) {
+	try {
+		return await createPreviewSession(request);
+	} catch (error) {
+		console.error("Concierge preview session failed", {
+			error: error instanceof Error ? error.name : "UnknownError",
+		});
+		return NextResponse.json(
+			{
+				error: "Sign-in is temporarily unavailable. Please try again shortly.",
+			},
+			{
+				status: 503,
+				headers: { "Cache-Control": "no-store", "Retry-After": "5" },
+			},
+		);
+	}
+}
+
+async function createPreviewSession(request: NextRequest) {
 	const parsed = input.safeParse(await request.json().catch(() => null));
 	if (!parsed.success)
 		return NextResponse.json(

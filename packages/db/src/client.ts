@@ -107,6 +107,9 @@ const createPrismaClient = () => {
 	const client = new PrismaClient({
 		adapter: new PrismaPg({
 			connectionString: databaseUrl.toString(),
+			max: process.env.VERCEL === "1" ? 2 : 10,
+			idleTimeoutMillis: 5000,
+			connectionTimeoutMillis: 10000,
 			...(certificate && {
 				ssl: { ca: certificate, rejectUnauthorized: true },
 			}),
@@ -136,8 +139,6 @@ declare global {
 
 export const db = globalThis.prisma ?? createPrismaClient();
 
-if (process.env.NODE_ENV !== "production") {
-	globalThis.prisma = db;
-}
+globalThis.prisma = db;
 
 export type Db = typeof db;

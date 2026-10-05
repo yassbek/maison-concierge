@@ -90,8 +90,8 @@ Set environment values separately on both projects:
 
 | Variable | Web app | API | Purpose |
 | --- | --- | --- | --- |
-| `DATABASE_URL` | Required | Required | Same dedicated pilot database |
-| `DIRECT_DATABASE_URL` | Not required | Migration connection | Direct connection for production migrations |
+| `DATABASE_URL` | Required | Required | Same database through the Supabase transaction pool on port 6543 |
+| `DIRECT_DATABASE_URL` | Not required | Required for migrations | Direct connection or session pool on port 5432 |
 | `DATABASE_SSL_CA` | Required for this Supabase connection | Required for this Supabase connection | PEM certificate authority for verified database TLS |
 | `BETTER_AUTH_SECRET` | Required | Required | Same generated authentication secret on both projects |
 | `APP_URL` | Required | Required | One exact public HTTPS app origin |
@@ -157,6 +157,9 @@ Verify the target database before invoking it.
 Both Vercel projects connect to this GitHub repository with `main` as the production branch.
 Deploy the API, configure its origin on the web project, and deploy the web app.
 Keep the API and web authentication secret synchronized.
+Use transaction pooling for both application runtimes. Session pooling reserves connections per serverless instance and exhausts the pilot limit.
+The Prisma client shares one pool per process, limits Vercel pools to two connections, and closes idle connections after five seconds.
+Connection acquisition has a ten-second timeout. Migration builds use the separate session or direct connection.
 
 ## Verification sequence
 
