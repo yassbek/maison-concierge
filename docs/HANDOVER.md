@@ -20,7 +20,9 @@ The delivery uses fictional records. Real client data and live booking operation
 The public repository is [maison-concierge](https://github.com/yassbek/maison-concierge).
 The assigned app address is [maison-concierge-orcin.vercel.app](https://maison-concierge-orcin.vercel.app).
 The API address is [maison-concierge-api.vercel.app](https://maison-concierge-api.vercel.app).
-GitHub CI passes: workspace types, all 65 focused tests, and the production web build.
+GitHub CI covers workspace types, all 65 focused tests, and the production web build.
+The subsequent connection-exhaustion correction passes 24 simultaneous hosted Concierge sign-ins and permission-filtered snapshots.
+See the [correction record](sessions/2026-10-05.md#hosted-connection-exhaustion-correction) for the observed failure and verification boundary.
 
 ## Operator workflow
 
