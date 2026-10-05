@@ -28,7 +28,7 @@ Remote seeding requires the explicit `--allow-remote-fixtures` option and the de
 
 The assigned app address is [maison-concierge-orcin.vercel.app](https://maison-concierge-orcin.vercel.app).
 The API address is [maison-concierge-api.vercel.app](https://maison-concierge-api.vercel.app).
-Deployment and hosted workflow verification remain in progress.
+The hosted pilot is live. Its login, permissions, and private brief lifecycle pass hosted checks.
 
 Production preview entry requires `CONCIERGE_PREVIEW_SECRET` and one exact HTTPS `APP_URL`.
 The private access key contains at least 32 characters and remains server-side.
@@ -136,6 +136,7 @@ The implementation has passed:
 Visual evidence is stored locally in `.local/evidence/`. The directory is ignored by Git.
 
 Cloud status: the dedicated database contains fictional fixtures. The API rejects unauthenticated requests with HTTP 401.
-Hosted sign-in and workflow verification remain pending.
+Hosted sign-in, secure cookies, role changes, API financial redaction, and private brief sharing pass verification.
+The [session record](sessions/2026-10-05.md#hosted-verification) separates hosted checks from the broader local walkthrough.
 
-Next action: complete the hosted checks in the handover and record their results.
+Next action: review the hosted pilot with the private access key.

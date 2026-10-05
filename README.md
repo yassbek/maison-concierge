@@ -6,7 +6,8 @@ The pilot contains fictional records. It does not send messages or make reservat
 
 [Public repository](https://github.com/yassbek/maison-concierge) · [Preview address](https://maison-concierge-orcin.vercel.app) · [Handover](docs/HANDOVER.md)
 
-The preview address is assigned. App deployment and hosted workflow verification remain pending.
+The hosted pilot is live behind a private access key. It contains fictional records.
+Production login, role permissions, and private brief links pass hosted checks.
 
 ## What the pilot includes
 
@@ -71,4 +72,4 @@ Maison builds on [Comp AI CRM](https://github.com/trycompai/crm).
 The upstream [MIT license](LICENSE) and copyright notice remain unchanged.
 Third-party image terms remain separate from the software license.
 
-Next action: follow the handover deployment checks before distributing the hosted preview.
+Next action: use the private preview key to review the pilot, then follow the handover for further development.

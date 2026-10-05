@@ -14,13 +14,13 @@ The delivery uses fictional records. Real client data and live booking operation
 | Application and workspace types | Full typecheck run completes thirteen Turbo tasks | [Session record](sessions/2026-10-05.md) |
 | Dedicated cloud database | Fictional fixtures initialized; browser database grants revoked | Deployment operator confirmation |
 | API deployment | Responds with HTTP 401 without authentication | Deployment operator HTTP check |
-| Web deployment | Build and hosted verification in progress | Verification sequence below |
-| Hosted browser walkthrough | Pending | Verification sequence below |
+| Web deployment | Production build and canonical-domain login pass | [Hosted verification](sessions/2026-10-05.md#hosted-verification) |
+| Hosted browser walkthrough | Owner overview and role switching verified | [Hosted verification](sessions/2026-10-05.md#hosted-verification) |
 
-The public repository target is [maison-concierge](https://github.com/yassbek/maison-concierge).
+The public repository is [maison-concierge](https://github.com/yassbek/maison-concierge).
 The assigned app address is [maison-concierge-orcin.vercel.app](https://maison-concierge-orcin.vercel.app).
 The API address is [maison-concierge-api.vercel.app](https://maison-concierge-api.vercel.app).
-The app address does not establish a successful hosted walkthrough.
+GitHub CI passes: workspace types, all 65 focused tests, and the production web build.
 
 ## Operator workflow
 
@@ -154,6 +154,7 @@ This opt-in permits fixture creation against a remote database.
 The seed preserves existing records, but it still adds fictional users and operational records.
 Verify the target database before invoking it.
 
+Both Vercel projects connect to this GitHub repository with `main` as the production branch.
 Deploy the API, configure its origin on the web project, and deploy the web app.
 Keep the API and web authentication secret synchronized.
 
@@ -187,8 +188,8 @@ Private brief links expire and support revocation.
 Revocation does not recall copies that a recipient already downloads.
 The worker has no recurring schedule and no automatic retries for failed or unavailable extraction.
 
-Cloud readiness requires the live verification sequence above.
-The maintainer records its result before distributing the preview beyond the authorized review group.
+The hosted verification record identifies the completed checks.
+Repeat the full verification sequence before replacing fictional fixtures with an operational workspace.
 
 ## Public source register
 
@@ -204,4 +205,4 @@ Private source recordings, identifiers, participant details, credentials, and ma
 The public repository starts with a sanitized initial snapshot. Original development history remains local.
 The snapshot retains the upstream MIT license and the source attribution above.
 
-Next action: the deploying maintainer completes the hosted verification sequence and updates the delivery status.
+Next action: review the hosted pilot and select the first live integration before operational rollout.
